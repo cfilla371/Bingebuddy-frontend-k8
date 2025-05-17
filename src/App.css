@@ -1,0 +1,278 @@
+.footer {
+  position: fixed;
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: darkblue;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+.navbar-custom {
+  background-color: darkblue;
+  text-align: center;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.center {
+  text-align: center;
+  padding-top: 50px;
+}
+
+#nav-dropdown {
+  color: white;
+  background-color: darkblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200vh;
+}
+
+.login-container {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */
+  padding: 2rem;
+  text-align: center;
+}
+
+.login-container h2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+  text-align: left;
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.login-button {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #14b321;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 300px;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+.registration-link {
+  text-align: center;
+  /* margin-top: 15px; */
+  font-size: 14px;
+}
+
+.registration-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.registration-link a:hover {
+  text-decoration: underline;
+}
+
+.home-image {
+  background-image: url("./Images/Movies_bg.jpg");
+  /* width: 100%; */
+  height: 8em !important;
+  position: fixed;
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+  bottom: 5px;
+}
+
+.sidebar {
+  color: #081a51;
+}
+
+.App-card {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 2vw;
+  flex-wrap: wrap;
+  /* padding-top: 10px; */
+}
+
+/* .btn-update {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.dataCard {
+  background-color: #efefef;
+  border-radius: 0.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1em;
+}
+
+.revenueCard {
+  width: 92%;
+  height: 17rem;
+}
+
+.customerCard {
+  width: 50%;
+  height: 17rem;
+}
+
+.categoryCard {
+  width: 70%;
+  height: 25rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.Mufasa {
+  background-image: url("../Images/Movies/Mufasa.jpg");
+}
+
+.Moana {
+  background-image: url("../Images/Movies/Moana.png");
+}
+
+.Godzilla {
+  background-image: url("../Images/Movies/.GodzillaKong.jpg");
+}
+
+.InsideOut {
+  background-image: url("../Images/Movies/.InsideOut.png");
+}
+
+.Despicable {
+  background-image: url("../Images/Movies/DespicableMe4.jpg");
+}
+
+.image-size {
+  height: 135px;
+  width: 100px;
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow: auto;
+  display: inline-block;
+  width: 100%;
+  margin-left: auto; /* to center the table */
+  margin-right: auto;
+}
+
+.login-logout {
+  height: 45px;
+  width: 60px;
+}
+
+.cerror {
+  color: #c51244 !important;
+  background: #fdfdfd !important;
+  /* padding: 10px !important; */
+  border-radius: 0 !important;
+  position: relative;
+  display: inline-block !important;
+  /* box-shadow: 1px 1px 1px #aaaaaa; */
+  margin-top: 10px;
+}
+
+.logoutButton {
+  display: none;
+}
+
+.container-dashmain {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 5px;
+
+  padding: 5px;
+}
+.container-dashmain > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+.container-dashmain > div.header {
+  grid-area: header;
+  text-align: center;
+}
+.container-dashmain > div.menu {
+  grid-area: menu;
+}
+.container-dashmain > div.content {
+  grid-area: content;
+}
+
+.container-dashmain > div.footer {
+  grid-area: footer;
+}
+
+.logo-image {
+  background-image: url("./Images/BBLogo3Md.png");
+  height: 350px;
+  width: 350px;
+}
+
+.logo-text {
+  padding-left: 50px;
+  padding-right: 150px;
+  font-size: 18px;
+}
+

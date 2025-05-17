@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Jan",
+    "userAverage": "25",
+    "user": "32"
+  },
+  {
+    "label": "Feb",
+    "userAverage": "30",
+    "user": "23"
+  },
+  {
+    "label": "March",
+    "userAverage": "32",
+    "user": "25"
+  },
+  {
+    "label": "April",
+    "userAverage": "23",
+    "user": "10"
+  },
+  {
+    "label": "May",
+    "userAverage": "35",
+    "user": "25"
+  },
+  {
+    "label": "June",
+    "userAverage": "45",
+    "user": "32"
+  },
+  {
+    "label": "July",
+    "userAverage": "50",
+    "user": "40"
+  },
+  {
+    "label": "Aug",
+    "userAverage": "42",
+    "user": "39"
+  },
+  {
+    "label": "Sep",
+    "userAverage": "31",
+    "user": "20"
+  },
+  {
+    "label": "Oct",
+    "userAverage": "35",
+    "user": "27"
+  },
+  {
+    "label": "Nov",
+    "userAverage": "48",
+    "user": "39"
+  },
+  {
+    "label": "Dec",
+    "userAverage": "55",
+    "user": "40"
+  }
+]
