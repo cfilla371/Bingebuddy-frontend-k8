@@ -24,16 +24,6 @@ const LoginPageComponent = () => {
   const { login } = useAuth();
   const { user } = useAuth();
 
-
-
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log("User detected, redirecting...");
-  //     navigate("/dashboard-main/:userId");
-  //   }
-  // }, [user]);
-
-
   let i = 0; // Counter to track login-password
 
   const handleChangeUsername = (e) => {
@@ -93,9 +83,6 @@ const LoginPageComponent = () => {
 
         localStorage.setItem("Token", token);
         localStorage.setItem("User", JSON.stringify(user));
-
-        console.log("Token stored:", localStorage.getItem("Token"));
-        console.log("User stored:", localStorage.getItem("User"));
 
         const userId = user.id;
         navigate(`/dashboard-main/${userId}`);

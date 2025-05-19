@@ -28,7 +28,6 @@ const SearchUserComponent = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        
         const userList = response.data.map(user => ({
           id: user.id,
           username: user.username
@@ -37,7 +36,6 @@ const SearchUserComponent = () => {
         setUsers(userList); 
 
       } catch (error) {
-        console.error("Error fetching users:", error);
         setUsers([]); 
       }
     };

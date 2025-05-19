@@ -44,13 +44,6 @@ export default function SearchMovie() {
         alert("You must be logged in to add to your watchlist!");
         return;
     }
-
-    console.log(" Adding to Watchlist for User:", user.id);
-    console.log("🎬 Movie ID:", imdbID);
-    console.log(
-      "🔗 Request URL:",
-      `http://localhost:8080/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`
-    );
     
     fetch(`http://localhost:8080/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`, {
 
@@ -59,7 +52,6 @@ export default function SearchMovie() {
   
             Authorization: `Bearer ${token}`,
         },
-       
     })
     .then((res) => {
         if (!res.ok) throw new Error("Failed to add movie to watchlist.");
@@ -67,15 +59,13 @@ export default function SearchMovie() {
     })
     .then(() => {
         alert("Movie added to watchlist!");
-        navigate(`/dashboard-watchlists/${user.id}`); 
+        //navigate(`/dashboard-watchlists/${user.id}`); 
     })
     .catch((err) => {
-        console.error(" Error adding to watchlist:", err);
         alert("Failed to add to watchlist.");
     });
 };
   
-
   const displayMovies = (movie) => {
     return (
       <div key={movie.imdbId} className="movie-card">

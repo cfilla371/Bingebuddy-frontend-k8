@@ -17,18 +17,14 @@ const ListUserComponent = () => {
         .then((response) => {
             setUsers(response.data);
         }).catch(error => {
-            console.error(error);
         })
     }
-
     function addNewUser(){
         navigator('/add-user') 
     }
-
     function updateUser(id){
         navigator(`/update-user/${id}`);   
     }
-
   return (
     <div className='container'>
         <h2 className='text-center header'> BingeBuddy Users List</h2>

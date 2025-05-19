@@ -18,20 +18,16 @@ const SidebarComponent = () => {
         .get(`http://localhost:8080/user-profile/${userId}`, { 
           headers: { Authorization: `Bearer ${token}` },
         })
-        .then((response) => {
-          setUserFirstName(response.data.firstName);
-        })
-        .catch((error) => console.error(error));
     }
   }, [userId]);
 
   const Menus = [
-    { title: "Dashboard", src: "Chart_fill",  path: `/dashboard-main/${userId}` },
-    { title: "Profile", src: "User", path: `/user-profile/${userId}` },
-    { title: "Reviews", src: "Chat", path: `/user-reviews/${userId}` },
-    { title: "Comments", src: "Folder", path: `/user-comments/${userId}` },
-    { title: "Watchlists!", src: `Calendar", path: "/user-watchlists/${userId}` },
-    { title: "Trends", src: `Chart", path: "/user-trends/${userId}` },
+    { title: "Dashboard", src: "Chart_fill",  path: `/dashboard-main/${userId}`},
+    { title: "Profile", src: "User", path: `/user-profile/${userId}`},
+    { title: "Reviews", src: "Chat", path: `/user-reviews/${userId}`},
+    { title: "Comments", src: "Folder", path: `/user-comments/${userId}`},
+    { title: "Watchlists!", src: "Calendar", path: `/user-watchlists/${userId}`},
+    { title: "Trends", src: "Chart", path: `/user-trends/${userId}` },
     { title: "Search Movies", src: "Search", path: "/search-movie" },
     { title: "Search Users", src: "Search", path: "/search-user" },
     //{ title: "Settings", src: "Setting", path:"/user-settings/1" },

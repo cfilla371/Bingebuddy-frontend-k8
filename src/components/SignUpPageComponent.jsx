@@ -56,15 +56,11 @@ const SignUpPageComponent = () => {
     } else {
       errorsCopy.username = "Enter Email & Password"; // if either email or password is empty, display a generic msg for both
       //errorsCopy.password = "Enter Password";
-      console.log("Enter Email & Password");
       i++;
-      console.log("Value in i : " + i);
       return;
     }
     if (!validator.isEmail(userData.username)) {
       errorsCopy.username = "Please enter a valid email"; // msg displayed
-      console.log("Please enter a valid email");
-      console.log("Value in i : " + i);
       i++;
       return;
     }
@@ -77,9 +73,6 @@ const SignUpPageComponent = () => {
     ) {
       errorsCopy.password =
         "Passwords cannot be blank & must contain a number & be atleast 8 characters";
-      console.log(
-        "Passwords cannot be blank & must contain a number & be atleast 8 characters"
-      );
       i++;
       console.log("Value in i : " + i);
       return;
@@ -87,7 +80,6 @@ const SignUpPageComponent = () => {
 
     // Checking if passwords match
     if (userData.password !== userData.confirmPassword) {
-      console.log("Passwords do not match");
       // setError("Passwords do not match!");
       i++;
       errorsCopy.password = "Passwords do not match!";
@@ -96,25 +88,19 @@ const SignUpPageComponent = () => {
 
     if (userData.firstName.length <= 0) {
       errorsCopy.firstName = "Please enter First Name";
-      console.log("First Name empty");
       i++;
-      console.log("Value in i : " + i);
       return;
     }
 
     if (userData.lastName.length <= 0) {
       errorsCopy.lastName = "Please enter Last Name";
-      console.log("Last Name empty");
       i++;
-      console.log("Value in i : " + i);
       return;
     }
 
     if (userData.genre.length <= 0) {
       errorsCopy.lastName = "Please enter a Genre of your choice";
-      console.log("Genre empty");
       i++;
-      console.log("Value in i : " + i);
       return;
     }
   } // --- End of validateForm() ---
@@ -130,39 +116,16 @@ const SignUpPageComponent = () => {
     setError("");
 
     validateForm();
+
     setErrors(errorsCopy);
-    console.log(
-      "From handleRegistration() -- after username password etc validation"
-    );
 
     if (i <= 0) {
-      console.log(userData);
-
       setErrors(errorsCopy);
-      console.log(userData);
-
-      try {
-        console.log(userData);
-
-        const response = await axios.post(
+      try { const response = await axios.post(
           "http://localhost:8080/register",
           userData
         );
-        // .then((response) => {
-
-        //   if (response.data.id) {
-        //     console.log("ID exists!");
-        //     setRegistrationSuccess(1);
-        //   } else {
-        //     console.log("ID doesn't exist!");
-        //     setRegistrationSuccess(2);
-        //   }
-        // });
-
         if (response.status == 201) {
-          console.log("user registered: ", response.data);
-          console.log(userData);
-
           if (response.data.id) {
             setRegistrationSuccess(1);
           } else {
@@ -175,7 +138,6 @@ const SignUpPageComponent = () => {
         }
       } catch (error) {
         setError("An error occurred during user registration");
-        console.log("Registration error: ", error);
         setRegistrationSuccess(2);
       }
       // setRegistrationSuccess(true);

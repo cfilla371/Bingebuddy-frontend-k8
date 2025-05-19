@@ -28,26 +28,6 @@ const DashboardTrendsComponent = () => {
 
   const [error, setError] = useState();
 
-  // const [chartData, setChartData] = useState({
-  //   labels: ["Reviews", "Comments", "Watchlists"],
-  //   datasets: [
-  //     {
-  //       label: "User Activity Stats",
-  //       data: [12, 19, 3],
-  //       backgroundColor: [
-  //         "rgba(43, 63, 229, 0.8)",
-  //         "rgba(250, 192, 19, 0.8)",
-  //         "rgba(253, 135, 135, 0.8)",
-  //       ],
-  //       borderColor: [
-  //         "rgba(43, 63, 229, 0.8)",
-  //         "rgba(250, 192, 19, 0.8)",
-  //         "rgba(253, 135, 135, 0.8)",
-  //       ],
-  //     },
-  //   ],
-  // });
-
   const chartRef = useRef(null);
 
   function loadStats() {
@@ -57,17 +37,10 @@ const DashboardTrendsComponent = () => {
   }
 
   useEffect(() => {
-    // if (chartRef.current) {
-    //   chartRef.current.Chart.update();
-    // }
-
     loadReviews();
     loadComments();
     loadWatchlists();
-
-    // loadStats();
   }, []);
-  // }, [chartData]);
 
   const handleDataChange = ({ reviews, comments, watchlists }) => {
     setChartData({
@@ -99,7 +72,6 @@ const DashboardTrendsComponent = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log("There was an error fetching the data", error);
       });
   };
 
@@ -111,7 +83,6 @@ const DashboardTrendsComponent = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log("There was an error fetching the data", error);
       });
   };
 
@@ -123,7 +94,6 @@ const DashboardTrendsComponent = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log("There was an error fetching the data", error);
       });
   };
 
@@ -138,9 +108,6 @@ const DashboardTrendsComponent = () => {
           <h1 className="center">
             Your Trends : Reviews, Comments & Watchlists
           </h1>
-          {/* {loadStats}
-        <Doughnut data={data} options={options}></Doughnut> */}
-
           <div className="dataCard categoryCard">
             <Doughnut
               data={{
@@ -148,9 +115,7 @@ const DashboardTrendsComponent = () => {
                 datasets: [
                   {
                     label: "User Activity Stats",
-                    // data: commentsReviewsTrends.map((data) => data.value),
                     data: [10, 20, 30],
-                    // data: [{ reviews }, { comments }, { watchlists }],
                     backgroundColor: [
                       "rgba(43, 63, 229, 0.8)",
                       "rgba(250, 192, 19, 0.8)",
@@ -177,16 +142,9 @@ const DashboardTrendsComponent = () => {
           </div>
         </div>
       </div>
-
       <div>
         <label>{error}</label>
       </div>
-      {/* <div>
-        <Doughnut ref={chartRef} data={chartData} />
-        <button onClick={handleDataChange}> Change Data</button>
-      </div> */}
-
-      <div></div>
     </div>
   );
 };

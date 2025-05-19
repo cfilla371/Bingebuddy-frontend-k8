@@ -32,9 +32,7 @@ const DashboardWatchlistsComponent = () => {
       });
 
       setWatchlists(response.data);
-      console.log("Fetched Watchlist:", response.data);
     } catch (error) {
-      console.error("Error fetching watchlist:", error);
       setError("Failed to load watchlist.");
     }
   };

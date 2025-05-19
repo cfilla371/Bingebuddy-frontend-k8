@@ -15,7 +15,6 @@ import DashboardReviewComponent from "./components/DashboardReviewComponent";
 import DashboardSettingsComponent from "./components/DashboardSettingsComponent";
 import DashboardTrendsComponent from "./components/DashboardTrendsComponent";
 import DashboardWatchlistsComponent from "./components/DashboardWatchlistsComponent";
-import CommentsComponent from "./components/CommentsComponent";
 import ReviewsRatingsComponent from "./components/ReviewsRatingsComponent";
 import DashboardCommentsComponent from "./components/DashboardCommentsComponent";
 import SingleMovieComponent from "./components/SingleMovieComponent";
@@ -71,7 +70,6 @@ function App() {
               }
             ></Route>
             <Route path="/update-user/:userId" element={<UserComponent />}></Route>
-            <Route path="/comments/:userId" element={<CommentsComponent />}></Route>
             <Route
               path="/review-rate/:userId"
               element={

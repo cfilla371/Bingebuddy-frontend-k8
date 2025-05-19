@@ -51,16 +51,12 @@ const UserComponent = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // const user = {email, userName, firstName, lastName, genre1, genre2}
       const user = { username, firstName, lastName, genre1, genre2 };
-      console.log(user);
-
       if (id) {
         updateUser(id, user)
           .then((response) => {
             console.log(response.data);
             // code to update existing user
-
             navigator("/users");
           })
           .catch((error) => {
@@ -69,14 +65,10 @@ const UserComponent = () => {
       } else {
         createUser(user)
           .then((response) => {
-            console.log(response.data);
-
             // code to add new user
-
             navigator("/users");
           })
           .catch((error) => {
-            console.log(error);
           });
       }
     }
@@ -90,40 +82,27 @@ const UserComponent = () => {
     if (username.trim()) {
       errorsCopy.username = "";
     }
-    // else{
-    //     errorsCopy.email = 'Email is required';
-    //     valid = 'false';
-    // }
-
     if (firstName.trim()) {
       errorsCopy.firstName = "";
     } else {
       errorsCopy.firstName = "First Name is required";
       valid = "false";
     }
-
     if (lastName.trim()) {
       errorsCopy.lastName = "";
     } else {
       errorsCopy.lastName = "Last Name is required";
       valid = "false";
     }
-
     if (genre1.trim()) {
       errorsCopy.genre1 = "";
     } else {
       errorsCopy.genre1 = "Please pick a genre!";
       valid = "false";
     }
-
     if (genre2.trim()) {
       errorsCopy.genre2 = "";
     }
-    // else{                    // Genre2 optional
-    //     errorsCopy.genre2 = 'Please add another genre!';
-    //     valid = 'false';
-    // }
-
     setErrors(errorsCopy);
     return valid;
   }

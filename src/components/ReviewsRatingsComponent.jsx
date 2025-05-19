@@ -36,13 +36,11 @@ const ReviewsRatingsComponent = ({ imdbId }) => {
         return res.json();
       })
       .then((data) => setReviews(data))
-      .catch((err) => console.error("Failed to load reviews:", err));
   }, [imdbId, token]);
 
   const handleAddReview = () => {
     if (!userId || !imdbId) {
       alert("You must be logged in to add a review!");
-      console.error("Error: Missing userId or imdbId", { userId, imdbId });
       return;
     }
 
@@ -74,13 +72,11 @@ const ReviewsRatingsComponent = ({ imdbId }) => {
         }
       })
       .then((data) => {
-        console.log("Review Response:", data);
         setReviews([...reviews, { content: reviewText, rating: reviewScore }]);
         setReviewText("");
         setReviewScore("5");
       })
       .catch((err) => {
-        console.error("Failed to add review:", err);
         alert("Failed to add review.");
       });
   };
