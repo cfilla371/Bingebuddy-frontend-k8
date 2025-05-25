@@ -134,7 +134,6 @@ const DashboardTrendsComponent = () => {
                 plugins: {
                   title: {
                     text: "",
-                    // text: "Reviews, Comments & Watchlists",
                   },
                 },
               }}

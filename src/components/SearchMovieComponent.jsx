@@ -45,7 +45,7 @@ export default function SearchMovie() {
         return;
     }
     
-    fetch(`http://localhost:8080/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`, {
+    fetch(`api/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`, {
 
         method: "POST",
         headers: {

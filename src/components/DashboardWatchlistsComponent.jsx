@@ -27,7 +27,7 @@ const DashboardWatchlistsComponent = () => {
         return;
       }
 
-      const response = await axios.get(`http://localhost:8080/user-watchlists/${userId}`, {
+      const response = await axios.get(`api/user-watchlists/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

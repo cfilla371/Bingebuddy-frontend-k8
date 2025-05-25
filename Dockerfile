@@ -1,24 +1,26 @@
-# Use an official Node.js runtime as a parent image
-FROM node:lts-alpine
 
-# Set the working directory in the container
+FROM node:lts-alpine AS builder
+
 WORKDIR /app
 
-# Copy the package.json and package-lock.json (or yarn.lock) to the working directory
 COPY package*.json ./
 
-# Install application dependencies
 RUN npm install
 
-# Explicitly install the missing rollup optional dependency
-RUN npm install --optional @rollup/rollup-linux-x64-musl
+RUN npm install
 
-# Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose the port your application will run on (if applicable, e.g., for preview)
-EXPOSE 5173
+RUN npm run build
 
-# Define the command to run your application in development
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
-# CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+FROM nginx:alpine
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

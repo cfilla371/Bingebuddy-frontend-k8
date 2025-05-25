@@ -24,7 +24,7 @@ const SearchUserComponent = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/search/${searchTerm}`, {
+        const response = await axios.get(`api/search/${searchTerm}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

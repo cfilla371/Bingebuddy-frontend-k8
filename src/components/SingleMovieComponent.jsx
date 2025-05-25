@@ -46,7 +46,7 @@ const token = localStorage.getItem("Token");
       return;
     }
 
-    fetch(`http://localhost:8080/user-watchlists?imdbId=${imdbId}&status=PLANNED`, {
+    fetch(`api/user-watchlists?imdbId=${imdbId}&status=PLANNED`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

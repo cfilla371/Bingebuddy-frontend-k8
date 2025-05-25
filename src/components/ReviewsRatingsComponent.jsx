@@ -28,7 +28,7 @@ const ReviewsRatingsComponent = ({ imdbId }) => {
   useEffect(() => {
     if (!imdbId) return;
 
-    fetch(`http://localhost:8080/movies/${imdbId}/reviews`, {
+    fetch(`api/movies/${imdbId}/reviews`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -51,7 +51,7 @@ const ReviewsRatingsComponent = ({ imdbId }) => {
 
     console.log("Request Headers:", requestHeaders);
 
-    fetch(`http://localhost:8080/movies/${imdbId}/reviews`, {
+    fetch(`api/movies/${imdbId}/reviews`, {
       method: "POST",
       headers: requestHeaders,
       body: JSON.stringify({

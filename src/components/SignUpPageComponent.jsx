@@ -122,7 +122,7 @@ const SignUpPageComponent = () => {
     if (i <= 0) {
       setErrors(errorsCopy);
       try { const response = await axios.post(
-          "http://localhost:8080/register",
+          "api/register",
           userData
         );
         if (response.status == 201) {

@@ -24,7 +24,7 @@ const LoginPageComponent = () => {
   const { login } = useAuth();
   const { user } = useAuth();
 
-  let i = 0; // Counter to track login-password
+  let i = 0; //track login
 
   const handleChangeUsername = (e) => {
     setUserName(e.target.value);
@@ -38,7 +38,7 @@ const LoginPageComponent = () => {
     setError(""); 
   };
 
-  // --- start of Validation ---
+  
   const validateForm = (username, password) => {
     let isValid = true;
     const errorsCopy = { username: "", password: "" };
@@ -61,7 +61,7 @@ const LoginPageComponent = () => {
     setErrors(errorsCopy);
     return isValid;
   };
-  // --- End of validateForm() ---
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
