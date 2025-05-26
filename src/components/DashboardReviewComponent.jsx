@@ -12,7 +12,7 @@ const DashboardReviewComponent = () => {
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/user-reviews/${userId}`, {
+        const response = await axios.get(`api/user-reviews/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setReviews(response.data);

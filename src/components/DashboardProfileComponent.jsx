@@ -40,7 +40,7 @@ const DashboardProfileComponent = () => {
         setErrors("User ID not found in token");
         return;
       }
-      const apiUrl = `http://localhost:8080/user-profile/${userId}`;
+      const apiUrl = `api/user-profile/${userId}`;
       const response = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });

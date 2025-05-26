@@ -16,7 +16,7 @@ const DashboardMainComponent = () => {
     const token = localStorage.getItem("Token");
     if (token && userId) {
       axios
-        .get(`http://localhost:8080/user-profile/${userId}`, { 
+        .get(`api/user-profile/${userId}`, { 
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
