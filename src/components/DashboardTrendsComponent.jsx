@@ -66,7 +66,7 @@ const DashboardTrendsComponent = () => {
 
   const loadReviews = async (e) => {
     const response = await axios
-      .get("http://localhost:8080/user-reviews-count/1")
+      .get("api/user-reviews-count/1")
       .then((response) => {
         setReviews(response.data);
         console.log(response.data);
@@ -77,7 +77,7 @@ const DashboardTrendsComponent = () => {
 
   const loadComments = async (e) => {
     const response = await axios
-      .get("http://localhost:8080/user-reviews-count/1")
+      .get("api/user-reviews-count/1")
       .then((response) => {
         setComments(response.data);
         console.log(response.data);
@@ -88,7 +88,7 @@ const DashboardTrendsComponent = () => {
 
   const loadWatchlists = async (e) => {
     const response = await axios
-      .get("http://localhost:8080/user-reviews-count/1")
+      .get("api/user-reviews-count/1")
       .then((response) => {
         setWatchlists(response.data);
         console.log(response.data);
@@ -134,6 +134,7 @@ const DashboardTrendsComponent = () => {
                 plugins: {
                   title: {
                     text: "",
+                    // text: "Reviews, Comments & Watchlists",
                   },
                 },
               }}
