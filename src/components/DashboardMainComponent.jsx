@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import SidebarComponent from "./SidebarComponent";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const DashboardMainComponent = () => {
   const { userId } = useParams(); 
@@ -16,7 +17,7 @@ const DashboardMainComponent = () => {
     const token = localStorage.getItem("Token");
     if (token && userId) {
       axios
-        .get(`api/user-profile/${userId}`, { 
+        .get(`${BASE_URL}/api/user-profile/${userId}`, { 
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {

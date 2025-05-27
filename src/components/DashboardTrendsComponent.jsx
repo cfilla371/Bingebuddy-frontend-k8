@@ -10,6 +10,7 @@ import averageUser from "../data/AverageUser.json";
 import commentsReviewsTrends from "../data/CommentsReviewsTrends.json";
 import commentsReviewsTrend from "../data/CommentsReviewsTrends.json";
 import { data } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
@@ -66,7 +67,7 @@ const DashboardTrendsComponent = () => {
 
   const loadReviews = async (e) => {
     const response = await axios
-      .get("api/user-reviews-count/1")
+      .get(`${BASE_URL}/api/user-reviews-count/1`)
       .then((response) => {
         setReviews(response.data);
         console.log(response.data);
@@ -77,7 +78,7 @@ const DashboardTrendsComponent = () => {
 
   const loadComments = async (e) => {
     const response = await axios
-      .get("api/user-reviews-count/1")
+      .get(`${BASE_URL}/api/user-reviews-count/1`)
       .then((response) => {
         setComments(response.data);
         console.log(response.data);
@@ -88,7 +89,7 @@ const DashboardTrendsComponent = () => {
 
   const loadWatchlists = async (e) => {
     const response = await axios
-      .get("api/user-reviews-count/1")
+      .get(`${BASE_URL}/api/user-reviews-count/1`)
       .then((response) => {
         setWatchlists(response.data);
         console.log(response.data);

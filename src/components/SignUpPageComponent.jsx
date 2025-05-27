@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import validator from "validator";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const SignUpPageComponent = () => {
   const [userData, setUserData] = useState({
@@ -122,7 +123,7 @@ const SignUpPageComponent = () => {
     if (i <= 0) {
       setErrors(errorsCopy);
       try { const response = await axios.post(
-          "api/register",
+          `${BASE_URL}/api/register`,
           userData
         );
         if (response.status == 201) {

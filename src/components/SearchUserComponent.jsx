@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SidebarComponent from "./SidebarComponent";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const token = localStorage.getItem("Token");
 
@@ -24,7 +25,7 @@ const SearchUserComponent = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`api/search/${searchTerm}`, {
+        const response = await axios.get(`${BASE_URL}/api/search/${searchTerm}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

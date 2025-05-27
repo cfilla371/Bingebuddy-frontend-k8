@@ -4,41 +4,33 @@ import axios from "axios";
 import "../App.css";
 import { useAuth } from "./AuthContext";
 import validator from "validator";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const LoginPageComponent = () => {
-  
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // -------- Checks for errors after 200 msg ----------
-
-
+  const [error, setError] = useState("");
 
   const [errors, setErrors] = useState({
     username: "",
     password: "",
   });
 
-  const errorsCopy = { ...errors };
-
   const navigate = useNavigate();
-  const { login } = useAuth();
-  const { user } = useAuth();
-
-  let i = 0; // Counter to track login-password
+  const { login } = useAuth(); 
 
   const handleChangeUsername = (e) => {
     setUserName(e.target.value);
     setErrors((prev) => ({ ...prev, username: "" }));
-    setError(""); 
+    setError("");
   };
 
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
     setErrors((prev) => ({ ...prev, password: "" }));
-    setError(""); 
+    setError("");
   };
 
-  // --- start of Validation ---
   const validateForm = (username, password) => {
     let isValid = true;
     const errorsCopy = { username: "", password: "" };
@@ -61,36 +53,60 @@ const LoginPageComponent = () => {
     setErrors(errorsCopy);
     return isValid;
   };
-  // --- End of validateForm() ---
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
+    console.log("LoginPageComponent: Starting login process...");
+
     if (!validateForm(username, password)) {
+      console.log("LoginPageComponent: Form validation failed.");
       return;
     }
 
     try {
+      console.log("LoginPageComponent: Attempting axios POST to", `${BASE_URL}/api/loginjwt`);
       const response = await axios.post(
-        "api/loginjwt",
+        `${BASE_URL}/api/loginjwt`,
         { username, password },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );
 
+      console.log("LoginPageComponent: Axios response received. Status:", response.status);
+      console.log("LoginPageComponent: Response data:", response.data); 
+
       if (response.status === 200) {
         const { token, user } = response.data;
 
+        console.log("LoginPageComponent: Login successful (200 OK). User:", user, "Token:", token);
+
         localStorage.setItem("Token", token);
         localStorage.setItem("User", JSON.stringify(user));
+        console.log("LoginPageComponent: Stored token and user in localStorage.");
+
+        console.log("LoginPageComponent: Calling AuthContext login function...");
+        login(user, token);
+        console.log("LoginPageComponent: AuthContext login function called.");
 
         const userId = user.id;
+        console.log("LoginPageComponent: Navigating to dashboard for userId:", userId);
         navigate(`/dashboard-main/${userId}`);
+        console.log("LoginPageComponent: navigate() function called.");
       } else {
         setError("Invalid username or password");
+        console.log("LoginPageComponent: Login failed, status not 200. Setting error.");
       }
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error("LoginPageComponent: Error during login API call:", error);
+      if (error.response) {
+        console.error("LoginPageComponent: Error Response Data:", error.response.data);
+        console.error("LoginPageComponent: Error Response Status:", error.response.status);
+      } else if (error.request) {
+        console.error("LoginPageComponent: No response received:", error.request);
+      } else {
+        console.error("LoginPageComponent: Error setting up request:", error.message);
+      }
       setError("Error logging in! Please retry.");
     }
   };
@@ -113,8 +129,8 @@ const LoginPageComponent = () => {
                 required
                 onChange={handleChangeUsername}
               />
-              {errorsCopy.username && (
-                <div className="invalid-feedback"> {errorsCopy.username} </div>
+              {errors.username && (
+                <div className="invalid-feedback"> {errors.username} </div>
               )}
             </div>
 
@@ -129,8 +145,8 @@ const LoginPageComponent = () => {
                 required
                 onChange={handleChangePassword}
               />
-              {errorsCopy.password && (
-                <div className="invalid-feedback"> {errorsCopy.password} </div>
+              {errors.password && (
+                <div className="invalid-feedback"> {errors.password} </div>
               )}
             </div>
 

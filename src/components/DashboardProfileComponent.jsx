@@ -4,6 +4,7 @@ import SidebarComponent from "./SidebarComponent";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const DashboardProfileComponent = () => {
   const [userData, setUserData] = useState({
@@ -40,7 +41,7 @@ const DashboardProfileComponent = () => {
         setErrors("User ID not found in token");
         return;
       }
-      const apiUrl = `api/user-profile/${userId}`;
+      const apiUrl = `${BASE_URL}/pi/user-profile/${userId}`;
       const response = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });

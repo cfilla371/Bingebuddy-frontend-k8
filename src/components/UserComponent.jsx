@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createUser, getUser, updateUser } from "../services/UserService";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const UserComponent = () => {
   const [username, setUserName] = useState("");

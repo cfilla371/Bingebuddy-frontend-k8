@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
 
 const AuthContext = createContext();
 
@@ -7,26 +6,28 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
+    console.log("AuthContext: Initializing user state from localStorage.");
     const storedUser = localStorage.getItem("User");
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  const navigate = useNavigate();
+
 
   const login = (userData, token) => {
+    console.log("AuthContext: login function called with userData:", userData, "and token:", token);
     setUser(userData);
-    localStorage.setItem("User", JSON.stringify(userData)); 
-    localStorage.setItem("accessToken", token); 
+    localStorage.setItem("User", JSON.stringify(userData));
+    localStorage.setItem("Token", token);
+    console.log("AuthContext: User state and localStorage updated.");
 
-    
-    navigate("/dashboard-main/:userid");
   };
 
   const logout = () => {
+    console.log("AuthContext: logout function called.");
     setUser(null);
     localStorage.removeItem("User");
-    localStorage.removeItem("accessToken");
-    navigate("/"); 
+    localStorage.removeItem("Token");
+    
   };
 
   return (
@@ -37,4 +38,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export default AuthContext;
-

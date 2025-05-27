@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SidebarComponent from "./SidebarComponent";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const DashboardWatchlistsComponent = () => {
   const [watchlists, setWatchlists] = useState([]);
@@ -27,7 +28,7 @@ const DashboardWatchlistsComponent = () => {
         return;
       }
 
-      const response = await axios.get(`api/user-watchlists/${userId}`, {
+      const response = await axios.get(`${BASE_URL}/api/user-watchlists/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

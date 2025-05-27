@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import SidebarComponent from "./SidebarComponent";
 import { useParams, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import ReviewsRatingsComponent from "./ReviewsRatingsComponent";  
+import ReviewsRatingsComponent from "./ReviewsRatingsComponent";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;  
 
 const SingleMovieComponent = () => {
   const { imdbId } = useParams(); 
@@ -46,7 +47,7 @@ const token = localStorage.getItem("Token");
       return;
     }
 
-    fetch(`api/user-watchlists?imdbId=${imdbId}&status=PLANNED`, {
+    fetch(`${BASE_URL}/api/user-watchlists?imdbId=${imdbId}&status=PLANNED`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

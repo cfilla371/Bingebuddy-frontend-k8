@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useParams } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const ReviewsRatingsComponent = ({ imdbId }) => {
   const [reviewText, setReviewText] = useState("");
@@ -28,7 +29,7 @@ const ReviewsRatingsComponent = ({ imdbId }) => {
   useEffect(() => {
     if (!imdbId) return;
 
-    fetch(`api/movies/${imdbId}/reviews`, {
+    fetch(`${BASE_URL}/api/movies/${imdbId}/reviews`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

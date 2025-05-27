@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SidebarComponent from "./SidebarComponent";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 const DashboardReviewComponent = () => {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +13,7 @@ const DashboardReviewComponent = () => {
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const response = await axios.get(`api/user-reviews/${userId}`, {
+        const response = await axios.get(`${BASE_URL}/api/user-reviews/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setReviews(response.data);

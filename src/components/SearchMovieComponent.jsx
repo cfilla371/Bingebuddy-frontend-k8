@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SidebarComponent from "./SidebarComponent";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 export default function SearchMovie() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -45,7 +46,7 @@ export default function SearchMovie() {
         return;
     }
     
-    fetch(`api/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`, {
+    fetch(`${BASE_URL}/api/user-watchlists/${user.id}?imdbId=${imdbID}&status=PLANNED`, {
 
         method: "POST",
         headers: {

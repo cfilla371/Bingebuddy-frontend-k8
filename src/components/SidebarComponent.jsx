@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useParams, Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
 
 const SidebarComponent = () => {
@@ -15,7 +16,7 @@ const SidebarComponent = () => {
     const token = localStorage.getItem("Token");
     if (token && userId) {
       axios
-        .get(`api/user-profile/${userId}`, { 
+        .get(`${BASE_URL}/api/user-profile/${userId}`, { 
           headers: { Authorization: `Bearer ${token}` },
         })
     }

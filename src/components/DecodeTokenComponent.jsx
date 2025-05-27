@@ -12,14 +12,12 @@ const DecodeTokenComponent = () => {
         }
 
         const decodedToken = jwtDecode(token);
-        console.log("Decoded Token:  " + decodedToken.username);
       } catch (error) {
-        console.error("Error decoding token", error);
       }
     };
 
     decodeToken();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   return (
     <div>
