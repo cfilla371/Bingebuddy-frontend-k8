@@ -56,7 +56,6 @@ const UserComponent = () => {
         updateUser(id, user)
           .then((response) => {
             console.log(response.data);
-            // code to update existing user
             navigator("/users");
           })
           .catch((error) => {
@@ -65,7 +64,6 @@ const UserComponent = () => {
       } else {
         createUser(user)
           .then((response) => {
-            // code to add new user
             navigator("/users");
           })
           .catch((error) => {

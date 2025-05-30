@@ -45,22 +45,19 @@ const SignUpPageComponent = () => {
     setErrors("", "");
   };
 
-  //  Validation
-
-  // --- start of Validation ---
+ 
   function validateForm() {
     if (userData.username.trim && userData.password.trim) {
-      // if characters in username-password, set errorsCopy to empty
+     
       errorsCopy.username = "";
       errorsCopy.password = "";
     } else {
-      errorsCopy.username = "Enter Email & Password"; // if either email or password is empty, display a generic msg for both
-      //errorsCopy.password = "Enter Password";
+      errorsCopy.username = "Enter Email & Password";
       i++;
       return;
     }
     if (!validator.isEmail(userData.username)) {
-      errorsCopy.username = "Please enter a valid email"; // msg displayed
+      errorsCopy.username = "Please enter a valid email";
       i++;
       return;
     }
@@ -78,9 +75,7 @@ const SignUpPageComponent = () => {
       return;
     }
 
-    // Checking if passwords match
     if (userData.password !== userData.confirmPassword) {
-      // setError("Passwords do not match!");
       i++;
       errorsCopy.password = "Passwords do not match!";
       return;
@@ -103,16 +98,11 @@ const SignUpPageComponent = () => {
       i++;
       return;
     }
-  } // --- End of validateForm() ---
+  } 
 
   const handleRegistration = async (e) => {
     e.preventDefault();
 
-    // if (userData.password !== userData.confirmPassword) {
-    //   console.log("Passwords do not match");
-    //   setError("Passwords do not match!");
-    //   return;
-    // }
     setError("");
 
     validateForm();
@@ -140,7 +130,7 @@ const SignUpPageComponent = () => {
         setError("An error occurred during user registration");
         setRegistrationSuccess(2);
       }
-      // setRegistrationSuccess(true);
+    
     }
   };
 

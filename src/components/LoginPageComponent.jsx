@@ -9,7 +9,7 @@ const LoginPageComponent = () => {
   
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // -------- Checks for errors after 200 msg ----------
+  const [error, setError] = useState("");
 
 
 
@@ -24,7 +24,7 @@ const LoginPageComponent = () => {
   const { login } = useAuth();
   const { user } = useAuth();
 
-  let i = 0; // Counter to track login-password
+  let i = 0; 
 
   const handleChangeUsername = (e) => {
     setUserName(e.target.value);
@@ -38,7 +38,7 @@ const LoginPageComponent = () => {
     setError(""); 
   };
 
-  // --- start of Validation ---
+
   const validateForm = (username, password) => {
     let isValid = true;
     const errorsCopy = { username: "", password: "" };

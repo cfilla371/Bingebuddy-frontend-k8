@@ -19,7 +19,7 @@ const DecodeTokenComponent = () => {
     };
 
     decodeToken();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); nt
 
   return (
     <div>
