@@ -3,11 +3,12 @@ import SidebarComponent from "./SidebarComponent";
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_API_URL;
 
-const token = localStorage.getItem("Token");
 
 const SearchUserComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [users, setUsers] = useState([]);
+   const [userId, setUserId] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem("Token"));
 
   const displayUsers = (user) => {
     return <a href={`/user-reviews/${user.id}`} key={user.id}>{user.username} </a>; 

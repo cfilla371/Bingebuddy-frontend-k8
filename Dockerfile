@@ -12,7 +12,7 @@ ARG VITE_REACT_APP_BACKEND_API_URL
 
 ENV VITE_REACT_APP_BACKEND_API_URL=$VITE_REACT_APP_BACKEND_API_URL
 
-RUN npm run build # Vite will now pick up the ENV variable here
+RUN npm run build
 
 FROM nginx:alpine
 
